@@ -12756,9 +12756,18 @@ body {
     }
 }
 
+.signup-ourvalues {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 8) 0%, rgba(0, 0, 0, 0.3) 75%, #000 100%), url("../bg-values.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
 .signup-section {
     padding: 10rem 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("../assets/img/bg-signup.jpg");
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 8) 0%, rgba(0, 0, 0, 0.3) 75%, #000 100%), url("../bg-contact.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
