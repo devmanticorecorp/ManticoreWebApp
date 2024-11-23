@@ -137,6 +137,42 @@ h1, .h1 {
     height: 4.5em; /* Ajusta la altura según el número de líneas */
 }
 
+/* Add this to your CSS file (e.g., styles.css) */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+.cookie-consent-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cookie-consent-content p {
+    margin: 0;
+    padding-right: 10px;
+}
+
+.cookie-consent-content a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.cookie-consent-content button {
+    margin-left: 10px;
+}
+
 @media (min-width: 1200px) {
     h1, .h1 {
         font-size: 2.5rem;
