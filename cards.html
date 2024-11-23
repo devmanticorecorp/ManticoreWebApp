@@ -17,6 +17,9 @@
         rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles1.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -34,6 +37,31 @@
         </div>
     </section>
     <!-- Fin Productos Section -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img id="modal-img" class="img-fluid" src="" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <h4 id="modal-title"></h4>
+                            <p id="modal-description"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         const itemsPerPage = 6;
@@ -75,16 +103,24 @@
 
             const card = `
                 <div class="card h-100">
-                    <img class="card-img-top" src="${producto.img}" alt="${producto.title}">
+                    <img class="card-img-top product-img" src="${producto.img}" alt="${producto.title}">
                     <div class="card-body">
                         <h4 class="card-title">${producto.title}</h4>
                         <p class="card-text">${producto.description}</p>
+                        <button class="btn btn-primary" onclick="showModal('${producto.img}', '${producto.title}', '${producto.description.replace(/'/g, "\\'")}')">Ver más</button>
                     </div>
                 </div>
             `;
 
             col.innerHTML = card;
             return col;
+        }
+
+        function showModal(img, title, description) {
+            document.getElementById('modal-img').src = img;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description;
+            $('#productModal').modal('show');
         }
 
         function renderPagination() {
@@ -122,6 +158,10 @@
             });
         }
     </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
