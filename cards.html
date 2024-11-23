@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="Landing Page Maticore" content="" />
+    <meta name="author" content="" />
+    <title>Manticore</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.6.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Productos Section -->
+    <section id="productos" class="py-5">
+        <div class="container">
+            <div class="row" id="productos-container">
+                <!-- Las tarjetas de productos se generarán aquí -->
+            </div>
+            <nav>
+                <ul class="pagination justify-content-center" id="pagination">
+                    <!-- Los botones de paginación se generarán aquí -->
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <!-- Fin Productos Section -->
+
+    <script>
+        const itemsPerPage = 6;
+        let currentPage = 1;
+        let productos = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('js/products.json')
+                .then(response => response.json())
+                .then(data => {
+                    productos = data;
+                    renderProductos(currentPage);
+                    renderPagination();
+                    updatePagination();
+                })
+                .catch(error => console.error('Error al cargar el JSON:', error));
+        });
+
+        function renderProductos(page) {
+            const container = document.getElementById('productos-container');
+            container.innerHTML = '';
+            const paginatedItems = getPaginatedItems(page);
+
+            paginatedItems.forEach(producto => {
+                const col = createProductCard(producto);
+                container.appendChild(col);
+            });
+        }
+
+        function getPaginatedItems(page) {
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            return productos.slice(start, end);
+        }
+
+        function createProductCard(producto) {
+            const col = document.createElement('div');
+            col.className = 'col-lg-4 col-md-6 mb-4';
+
+            const card = `
+                <div class="card h-100">
+                    <img class="card-img-top" src="${producto.img}" alt="${producto.title}">
+                    <div class="card-body">
+                        <h4 class="card-title">${producto.title}</h4>
+                        <p class="card-text">${producto.description}</p>
+                    </div>
+                </div>
+            `;
+
+            col.innerHTML = card;
+            return col;
+        }
+
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            const pageCount = Math.ceil(productos.length / itemsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const li = createPaginationButton(i);
+                pagination.appendChild(li);
+            }
+        }
+
+        function createPaginationButton(page) {
+            const li = document.createElement('li');
+            li.className = 'page-item';
+            li.innerHTML = `<a class="page-link" href="#">${page}</a>`;
+            li.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage = page;
+                renderProductos(currentPage);
+                updatePagination();
+            });
+            return li;
+        }
+
+        function updatePagination() {
+            const paginationItems = document.querySelectorAll('.page-item');
+            paginationItems.forEach((item, index) => {
+                if (index + 1 === currentPage) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
