@@ -1,21 +1,21 @@
 [
   {
-    "img": "assets/products/00001.jpg",
+    "img": "assets/00001.jpg",
     "title": "UAV Stallion: Versatile for All Types of Exploration",
     "description": " this UAV is lightweight and robust, making it ideal for a wide range of exploration tasks. The drone features a built-in FPV camera for real-time video transmission, ensuring you capture every detail from above."
   },
   {
-    "img": "assets/products/00002.jpg",
+    "img": "assets/00002.jpg",
     "title": "Military-Grade Night Vision Goggles: Advanced Precision in Darkness",
     "description": "Experience unparalleled clarity in the darkest environments with our military-grade night vision goggles. Designed for professional use, these goggles feature cutting-edge infrared technology and high-resolution imaging, providing a clear, detailed view even in zero-light conditions"
   },
   {
-    "img": "assets/products/00003.jpg",
+    "img": "assets/00003.jpg",
     "title": "Thermonator Flamethrower: Unleash the Inferno",
     "description": "The Thermonator Flamethrower is a powerful and compact device designed for maximum efficiency and control. Ideal for professional and recreational use, it delivers a precise and intense stream of fire, making it perfect for clearing brush, agricultural tasks, or just having some fiery fun"
   },
   {
-    "img": "assets/products/00004.jpg",
+    "img": "assets/00004.jpg",
     "title": "Total Microphone Jammer: Ensuring Absolute Privacy",
     "description": "The Total Microphone Jammer is the ultimate solution for ensuring complete privacy in any environment. This advanced device emits a broad-spectrum interference signal, effectively disabling all microphones within its range. Whether for confidential meetings, private conversations, or securing sensitive areas"
   }
