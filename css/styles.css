@@ -12866,11 +12866,11 @@ body {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 100%;
             line-height: 3rem;
-            color: rgba(255, 255, 255, 0.3);
+            color: #ffc107;
         }
 
             .contact-section .social a:hover {
-                color: rgba(255, 255, 255, 0.5);
+                color: #0d6efd;
             }
 
             .contact-section .social a:active {
