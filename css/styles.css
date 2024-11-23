@@ -127,6 +127,16 @@ h1, .h1 {
     font-size: calc(1.375rem + 1.5vw);
 }
 
+/* styles.css */
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Número de líneas a mostrar */
+    -webkit-box-orient: vertical;
+    height: 4.5em; /* Ajusta la altura según el número de líneas */
+}
+
 @media (min-width: 1200px) {
     h1, .h1 {
         font-size: 2.5rem;
