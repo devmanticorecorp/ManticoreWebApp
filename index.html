@@ -192,14 +192,14 @@
 
     <!-- Productos Section -->
     <section class="bg-black text-center py-4" id="productos" class="py-5">
-        <div class="container px-4 px-lg-5">
+        <div>
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-10">
                     <h2 class="text-white mb-4">
                         Our products
                     </h2>
                     <div class="container">
-                        <div class="row" id="productos-container">
+                        <div class="row justify-content-center" id="productos-container">
                             <!-- Las tarjetas de productos se generarán aquí -->
                         </div>
                         <nav>
@@ -377,15 +377,14 @@
 
         function createProductCard(producto) {
             const col = document.createElement('div');
-            col.className = 'col-lg-4 col-md-6 mb-4';
+            col.className = 'col-lg-2 col-md-6 mb-4';
 
             const card = `
-                <div class="card h-100">
+                <div class="card h-100" onclick="showModal('${producto.img}', '${producto.title}', '${producto.description.replace(/'/g, "\\'")}')">
                     <img class="card-img-top product-img" src="${producto.img}" alt="${producto.title}">
                     <div class="card-body">
                         <h4 class="card-title">${producto.title}</h4>
                         <p class="card-text">${producto.description}</p>
-                        <button class="btn btn-primary" onclick="showModal('${producto.img}', '${producto.title}', '${producto.description.replace(/'/g, "\\'")}')">Ver más</button>
                     </div>
                 </div>
             `;
